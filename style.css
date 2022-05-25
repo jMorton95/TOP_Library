@@ -1,0 +1,41 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 150px 1fr 50px;
+}
+
+header, footer{
+    /*Shared Rules*/
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(4, 57, 100);
+}
+
+header{
+
+    box-shadow: 2px 2px 5px blue;
+}
+main{
+    
+}
+
+footer{
+    
+    box-shadow: 2px -2px 5px blue;
+}
+footer img{
+    height: 40px;
+    width: 110px;
+}
+footer img:hover{
+    scale: 1.1;
+}
