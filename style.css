@@ -3,6 +3,7 @@
     margin: 0px;
     box-sizing: border-box;
     font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 body{
     height: 100vh;
@@ -21,15 +22,85 @@ header, footer{
 }
 
 header{
-
     box-shadow: 2px 2px 5px blue;
 }
+
 main{
-    
+    display: grid;
+    grid-template-rows: 75px 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+nav{
+    display: grid;
+    gap: 30px;
+    width: 100vw;
+    grid-column: 1 / 1;
+    grid-template-columns: 1fr 100px 100px 1fr;
+}
+
+nav > .add{
+    grid-column: 2 / 2;
+}
+
+nav > .delete{
+    grid-column: 3 / 3;
+}
+nav div > *{
+    border-radius: 24px;
+    border: 2px solid black;
+    width: 100px;
+    color: white;
+}
+
+#add{
+    background-color: green;
+}
+
+#remove{
+    background-color: red;
+}
+
+.container{
+    width: 100vw;
+    display: grid; 
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 50px;
+}
+
+.bookCard{
+    border-radius: 24px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    background-color: rgba(255, 0, 0, 0.205);
+    box-shadow: 0px 0px 2px 4px purple;
+    height: 400px;
+    width: 400px;
+    gap: 5px;
+    justify-items: center;
+}
+.bookCard:first-child{
+    padding-top: 20px;
+}
+
+
+.midSection{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.midSection > * {
+    width: 200px;
+    justify-self: center;
+}
+.update{
+    width: 100%;
 }
 
 footer{
-    
     box-shadow: 2px -2px 5px blue;
 }
 footer img{
