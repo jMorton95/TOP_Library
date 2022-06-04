@@ -14,7 +14,7 @@ function newBook() {
 function createBooks() {
 
     let target = document.querySelector(".container");
-    for (x = myLibrary.length + 9; x > 1; x--){
+    for (x = myLibrary.length + 3; x > 1; x--){
 
         let newBook = document.createElement("div");
         newBook.classList.add("bookCard");
@@ -41,10 +41,25 @@ function createBooks() {
 myLibrary.push(book1 = new book("George R.R Martin", "A Song of Ice and Fire", 750, true));
 
 
-
-
 createBooks();
+
 document.querySelector(".author").textContent = myLibrary[0].author;
 document.querySelector(".title").textContent = myLibrary[0].title;
 document.querySelector(".pages").textContent = myLibrary[0].pages;
-document.querySelector(".read").textContent = myLibrary[0].read;
+document.querySelector(".read");
+
+(() => {
+    for (i = myLibrary.length - 1; i > -1; i--){
+    if (myLibrary[i].read === true) {
+        return document.querySelector(".read").classList.add('readTrue');
+    };}
+
+})();
+
+const readStatus = document.querySelectorAll(".read");  
+
+readStatus.forEach(readStatus => {
+    readStatus.addEventListener('click', () => {
+         readStatus.classList.toggle('readTrue'); }
+       
+    )});
