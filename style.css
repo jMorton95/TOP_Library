@@ -3,7 +3,7 @@
     margin: 0px;
     box-sizing: border-box;
     font-size: 24px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Courier New', monospace;
 }
 body{
     height: 100vh;
@@ -133,9 +133,9 @@ footer img:hover{
     position: fixed;
     top: 50%;
     left: 50%;
-    height: 350px;
+    height: 400px;
     width: 400px;
-    margin-top: -175px;
+    margin-top: -200px;
     margin-left: -200px;
     background-color: rgba(177, 238, 238);   
     box-shadow: 0px 0px 2px 4px purple;
@@ -143,7 +143,7 @@ footer img:hover{
 }
 .formContainer{
     display: grid;
-    gap: 6px;
+    gap: 12px;
     grid-template-areas: "details details"
                          "author author"
                          "authBot authBot"
@@ -154,8 +154,12 @@ footer img:hover{
                          "read click"
                          "addB cancel";
 }
+/* Position each Form Element appropriately to above grid template*/
 #details{
-    grid-area: details; }
+    grid-area: details;
+    justify-self: center;
+    padding-bottom: 12px; 
+}
 #author{
     grid-area: author; }
 #authorBot{
@@ -169,7 +173,8 @@ footer img:hover{
 #pagesBot{
     width: 175px;
     justify-self: center;
-    grid-area: pagesBot; }
+    grid-area: pagesBot;
+}
 #read{
     grid-area: read; }
 input[type='checkbox']{
@@ -182,7 +187,6 @@ input[type='checkbox']{
     grid-area: cancel; 
     background-color: red;
 }
-
 .formContainer button{
     color: white;
     width: 175px;

@@ -10,7 +10,7 @@
 </head>
 <body>
         <header>
-            <h3>Book Library!</h3>
+            <h1>Book Library!</h1>
         </header>
 
         <main>
@@ -26,35 +26,38 @@
 
             <div class="container">
                     <div class="bookCard">
+
                         <p class="author"></p>
                         <p class="title"></p>
+
                         <div class="midSection">
                             <p class="pages"></p>
                             <div class="read"></div>
                         </div>
+
                         <div class="update">Update</div>
                     </div>
             </div>
         </main>
 
         <div id="addBookForm">
-            <form action="submit" class="formContainer">
+            <form class="formContainer">
                 <h1 id="details">Book Details:</h1>
 
                 <label for="author" id="author"><h3>Author</h3></label>
-                <input type="text" id="authorBot" placeholder="Enter Author here" name="author" required>
+                <input class="formItem" type="text" id="authorBot" placeholder="Enter Author here" name="author" maxlength="100" required>
 
                 <label for="title" id="title"><h3>Title</h3></label>
-                <input type="text" id="titleBot" name="title" placeholder="Enter Title here" required>
+                <input class="formItem" type="text" id="titleBot" name="title" placeholder="Enter Title here" maxlength="100" required>
 
                 <label for="pages" id="pages"><h3>Pages</h3></label>
-                <input type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" required>
+                <input class="formItem" type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" max="3000" required>
 
                 <label for="read" id="read"><h3>Click If Read</h3></label>
-                <input type="checkbox" name="read">
+                <input class="formItem" type="checkbox" id="readCheck" name="read">
 
-                <button type="submit" id="add">Add</button>
-                <button type="button" id="cancel" onclick="closeForm(this)">Cancel</button>
+                <button type="button" id="add" onclick="newBook()">Add</button>
+                <button type="button" id="cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
 
