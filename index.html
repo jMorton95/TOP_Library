@@ -15,11 +15,11 @@
 
         <main>
             <nav>
-                <div class="add">
-                    <button id="add">Add</button>
+                <div class="add" onclick="openAddForm()">
+                    <button id="addBook">Add</button>
                 </div>
                 <div class="remove">
-                    <button id="remove">Remove</button>
+                    <button id="removeBook">Remove</button>
                 </div>
                 
             </nav>
@@ -37,11 +37,35 @@
             </div>
         </main>
 
+        <div id="addBookForm">
+            <form action="submit" class="formContainer">
+                <h1 id="details">Book Details:</h1>
+
+                <label for="author" id="author"><h3>Author</h3></label>
+                <input type="text" id="authorBot" placeholder="Enter Author here" name="author" required>
+
+                <label for="title" id="title"><h3>Title</h3></label>
+                <input type="text" id="titleBot" name="title" placeholder="Enter Title here" required>
+
+                <label for="pages" id="pages"><h3>Pages</h3></label>
+                <input type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" required>
+
+                <label for="read" id="read"><h3>Click If Read</h3></label>
+                <input type="checkbox" name="read">
+
+                <button type="submit" id="add">Add</button>
+                <button type="button" id="cancel" onclick="closeForm(this)">Cancel</button>
+            </form>
+        </div>
+
         <footer>
             <h3>Copyright © 2022 Joshua Morton</h3>
             <a href="https://github.com/Klavelon/TOP_Library">
                 <img src="Images/GitHub_Logo_White.png" alt="GitHub">
             </a>
         </footer>
+
+     
 </body>
+        </div>
 </html>

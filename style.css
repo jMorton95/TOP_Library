@@ -56,11 +56,11 @@ nav div > *{
     color: white;
 }
 
-#add{
+#addBook{
     background-color: green;
 }
 
-#remove{
+#removeBook{
     background-color: red;
 }
 
@@ -124,4 +124,68 @@ footer img{
 }
 footer img:hover{
     scale: 1.1;
+}
+
+
+#addBookForm{
+    display: none;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 350px;
+    width: 400px;
+    margin-top: -175px;
+    margin-left: -200px;
+    background-color: rgba(177, 238, 238);   
+    box-shadow: 0px 0px 2px 4px purple;
+    border-radius: 8px;
+}
+.formContainer{
+    display: grid;
+    gap: 6px;
+    grid-template-areas: "details details"
+                         "author author"
+                         "authBot authBot"
+                         "title title"
+                         "titleBot titleBot"
+                         "pages pages"
+                         "pagesBot pagesBot"
+                         "read click"
+                         "addB cancel";
+}
+#details{
+    grid-area: details; }
+#author{
+    grid-area: author; }
+#authorBot{
+    grid-area: authBot; }
+#title{
+    grid-area: title; }
+#titleBot{
+    grid-area: titleBot; }
+#pages{
+    grid-area: pages; }
+#pagesBot{
+    width: 175px;
+    justify-self: center;
+    grid-area: pagesBot; }
+#read{
+    grid-area: read; }
+input[type='checkbox']{
+    grid-area: click; }
+#add{
+    grid-area: addB;
+    background-color: green;
+}
+#cancel{
+    grid-area: cancel; 
+    background-color: red;
+}
+
+.formContainer button{
+    color: white;
+    width: 175px;
+    border-radius: 24px;
+    border: 2px solid black;
 }
