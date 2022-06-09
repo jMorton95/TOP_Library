@@ -18,8 +18,8 @@ function book(author, title, pages, read) {
 
 //Return the status of our Checkbox.
 function isChecked(){
-    let x = document.getElementById('readCheck');
-    if ((x.checked) == true) {
+    let checkbox = document.getElementById('readCheck');
+    if ((checkbox.checked) == true) {
         return true;
     } else {
         return false;
@@ -35,14 +35,13 @@ function resetForm(){
     formItems[3].checked = false;
 }
 
-function storeBook(){
+function storeBook(author, title, pages, read){
     //Declare temporary variables to pass as constructor parameters from our form.
-    let a = document.getElementById('authorBot').value;
     let t = document.getElementById('titleBot').value;
     let p = document.getElementById('pagesBot').value;
     let r = isChecked();
     //Create new Book object from our form, store it in our library.
-    myLibrary[myLibrary.length] = new book(a, t, p, r);
+    myLibrary[myLibrary.length] = new book(author, title, pages, read);
 
     //Reset and hide our form, create a card from new Object.
     resetForm(); closeForm(); createCard();
@@ -99,7 +98,7 @@ myLibrary[0] = new book("George R.R Martin", "A Song of Ice and Fire", 750, true
 
 createCard();
 
-//Deprecated Anonymous function that adjusted default CSS based on if a book has been read or not.
+//Deprecated Anonymous function that adjusted CSS based on if my default book has been read or not, used during construction.
 /*(() => {
     for (i = myLibrary.length - 1; i > -1; i--){
     if (myLibrary[i].read === true) {
@@ -107,9 +106,18 @@ createCard();
     };}
 })();*/
 
+//Edit CSS when clicked
 const readStatus = document.querySelectorAll(".read");  
-
 readStatus.forEach(readStatus => {
     readStatus.addEventListener('click', () => {
          readStatus.classList.toggle('readTrue'); }
 )});
+
+
+//Cheaty method of including HTML5 Form Validation and DOM HTML attribute retrieval of form element data as function parameters.
+const form = document.querySelector(".formContainer");
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    storeBook(form.elements[0].value, form.elements[1].value, form.elements[2].value, isChecked());
+});
+
