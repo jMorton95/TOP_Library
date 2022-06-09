@@ -92,11 +92,7 @@ function createCard(){
 
 let myLibrary = [];
 let numOfCards = 0;
-//Default Library entry to display on the page.
-myLibrary[0] = new book("George R.R Martin", "A Song of Ice and Fire", 750, true);
 
-
-createCard();
 
 //Deprecated Anonymous function that adjusted CSS based on if my default book has been read or not, used during construction.
 /*(() => {
@@ -107,11 +103,14 @@ createCard();
 })();*/
 
 //Edit CSS when clicked
-const readStatus = document.querySelectorAll(".read");  
+window.addEventListener('click', (e) => { if (e.target.classList.contains('read') == true) e.target.classList.toggle("readTrue"); })
+
+
+/*let readStatus = document.querySelectorAll(".read");  
 readStatus.forEach(readStatus => {
     readStatus.addEventListener('click', () => {
          readStatus.classList.toggle('readTrue'); }
-)});
+)});*/
 
 
 //Cheaty method of including HTML5 Form Validation and DOM HTML attribute retrieval of form element data as function parameters.
@@ -121,3 +120,7 @@ form.addEventListener('submit', (e) => {
     storeBook(form.elements[0].value, form.elements[1].value, form.elements[2].value, isChecked());
 });
 
+
+//Default Library entry to display on the page.
+myLibrary[0] = new book("George R.R Martin", "A Song of Ice and Fire", 750, false);
+createCard();
