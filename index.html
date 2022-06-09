@@ -25,7 +25,8 @@
             </nav>
 
             <div class="container">
-                    <div class="bookCard">
+                <!--Template for a Card-->
+                    <!-- <div class="bookCard">
 
                         <p class="author"></p>
                         <p class="title"></p>
@@ -36,7 +37,7 @@
                         </div>
 
                         <div class="update">Update</div>
-                    </div>
+                    </div> -->
             </div>
         </main>
 
@@ -45,18 +46,18 @@
                 <h1 id="details">Book Details:</h1>
 
                 <label for="author" id="author"><h3>Author</h3></label>
-                <input class="formItem" type="text" id="authorBot" placeholder="Enter Author here" name="author" maxlength="100" required>
+                <input class="formItem" type="text" id="authorBot" placeholder="Enter Author here" name="author" minlength="10" maxlength="100" required>
 
                 <label for="title" id="title"><h3>Title</h3></label>
-                <input class="formItem" type="text" id="titleBot" name="title" placeholder="Enter Title here" maxlength="100" required>
+                <input class="formItem" type="text" id="titleBot" name="title" placeholder="Enter Title here" minlength="10" maxlength="100" required>
 
                 <label for="pages" id="pages"><h3>Pages</h3></label>
-                <input class="formItem" type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" max="3000" required>
+                <input class="formItem" type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" min="0" max="3000" required>
 
                 <label for="read" id="read"><h3>Click If Read</h3></label>
                 <input class="formItem" type="checkbox" id="readCheck" name="read">
 
-                <button type="button" id="add" onclick="newBook()">Add</button>
+                <button type="button" id="add" onclick="storeBook()">Add</button>
                 <button type="button" id="cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
