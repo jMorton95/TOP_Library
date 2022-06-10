@@ -1,3 +1,14 @@
+let myLibrary = [];
+let numOfCards = 0;
+
+let updateIndex = function(title){
+    return myLibrary.findIndex(obj =>{
+        return obj.title === title;
+    })
+}
+
+//Default Library entry to display on the page.
+myLibrary[0] = new book("George R.R Martin", "A Song of Ice and Fire", 750, false);
 
 //Object constructor for our library.
 function book(author, title, pages, read) {
@@ -16,15 +27,8 @@ function book(author, title, pages, read) {
     }
 }
 
-//Return the status of our Checkbox.
-function isChecked(){
-    let checkbox = document.getElementById('readCheck');
-    if ((checkbox.checked) == true) {
-        return true;
-    } else {
-        return false;
-    }
-}
+function openAddForm(){ document.getElementById("addBookForm").style.display = "block"; }
+function closeForm(){ document.getElementById("addBookForm").style.display = "none"; }
 
 //Select all our form elements, remove their values and specifically uncheck the checkbox.
 function resetForm(){
@@ -35,24 +39,22 @@ function resetForm(){
     formItems[3].checked = false;
 }
 
+//Return the status of our Checkbox.
+function isChecked(){
+    let checkbox = document.getElementById('readCheck');
+    if ((checkbox.checked) == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Create Book Objects from Inputs
 function storeBook(author, title, pages, read){
-    //Declare temporary variables to pass as constructor parameters from our form.
-    let t = document.getElementById('titleBot').value;
-    let p = document.getElementById('pagesBot').value;
-    let r = isChecked();
-    //Create new Book object from our form, store it in our library.
     myLibrary[myLibrary.length] = new book(author, title, pages, read);
 
     //Reset and hide our form, create a card from new Object.
     resetForm(); closeForm(); createCard();
-}
-
-function openAddForm(){
-    document.getElementById("addBookForm").style.display = "block";
-}
-
-function closeForm(){
-    document.getElementById("addBookForm").style.display = "none";
 }
 
 function createCard(){
@@ -86,12 +88,46 @@ function createCard(){
     if (myLibrary[numOfCards].read == true){
         newRead.classList.add("readTrue");
     }
+
     numOfCards++;
-    
 }
 
-let myLibrary = [];
-let numOfCards = 0;
+function decideAction(btnText){
+    if (btnText === 'Add' ? storeBook(form.elements[0].value, form.elements[1].value, form.elements[2].value, isChecked())
+     : updateParse());
+}
+
+function updateLoad(){
+    openAddForm();
+    document.getElemenyById('add').textContent = 'Update';
+}
+
+function updateParse(){
+    closeForm();
+}
+
+
+
+
+
+
+//Edit CSS when clicked
+window.addEventListener('click', (e) => { if (e.target.classList.contains('read')) e.target.classList.toggle("readTrue"); })
+
+//Cheaty method of including HTML5 Form Validation and DOM HTML attribute retrieval of form element data as function parameters.
+const form = document.querySelector(".formContainer");
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    decideAction(document.getElementById('add').textContent);
+});
+
+
+createCard();
+
+
+
+
+
 
 
 //Deprecated Anonymous function that adjusted CSS based on if my default book has been read or not, used during construction.
@@ -102,25 +138,9 @@ let numOfCards = 0;
     };}
 })();*/
 
-//Edit CSS when clicked
-window.addEventListener('click', (e) => { if (e.target.classList.contains('read') == true) e.target.classList.toggle("readTrue"); })
-
-
+//Deprecated ForEach Event Handler that toggled CSS classes to HTML elements.
 /*let readStatus = document.querySelectorAll(".read");  
 readStatus.forEach(readStatus => {
     readStatus.addEventListener('click', () => {
          readStatus.classList.toggle('readTrue'); }
 )});*/
-
-
-//Cheaty method of including HTML5 Form Validation and DOM HTML attribute retrieval of form element data as function parameters.
-const form = document.querySelector(".formContainer");
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    storeBook(form.elements[0].value, form.elements[1].value, form.elements[2].value, isChecked());
-});
-
-
-//Default Library entry to display on the page.
-myLibrary[0] = new book("George R.R Martin", "A Song of Ice and Fire", 750, false);
-createCard();
