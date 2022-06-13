@@ -7,7 +7,7 @@ myLibrary[0] = new book(
   "George R.R Martin",
   "A Song of Ice and Fire",
   750,
-  true
+  false
 );
 
 //Object constructor for our library.
@@ -16,16 +16,17 @@ function book(author, title, pages, read) {
   this.title = title;
   this.pages = pages;
   this.read = read;
-
-  this.readStatus = function () {
-    if (read == true) {
-      read == false;
-    } else {
-      read == true;
-    }
-    this.classList.toggle("readTrue");
-  };
 }
+
+//Push a prototype function to our objects that updates their read status and changes CSS to reflect.
+book.prototype.readStatus = function (e) {
+    if (this.read === false){
+        this.read = true;
+    } else {
+        this.read = false;
+    }
+    e.target.classList.toggle("readTrue");
+};
 
 function openAddForm() {
   document.getElementById("addBookForm").style.display = "block";
@@ -66,6 +67,7 @@ function storeBook(author, title, pages, read) {
   createCard();
 }
 
+//Create new HTML and assign Object properties to HTML.
 function createCard() {
   let cardContainer = document.querySelector(".container");
 
@@ -101,6 +103,7 @@ function createCard() {
   numOfCards++;
 }
 
+//Conditional statement that decides which function is called depending on the state of our form button.
 function decideAction(btnText) {
   if (
     btnText === "Add"
@@ -114,27 +117,43 @@ function decideAction(btnText) {
   ); 
 }
 
+/*Open our Form, and select the index where our HTML reflects our stored object.
+ Then display the whole object in our Form, ready for editing.*/
 function updateLoad(e) {
-  /*Open our Form, and select the index where our HTML reflects our stored object.
-    Then display the whole object in our Form, ready for editing.*/
   openAddForm();
-  updateIndex(e.target.parentElement.querySelector(".title").textContent);
+  updateIndex(e.target.parentElement.querySelector('.title').textContent);
   document.getElementById("add").textContent = "Update";
   form.elements[0].value = myLibrary[indexNumber].author;
   form.elements[1].value = myLibrary[indexNumber].title;
   form.elements[2].value = myLibrary[indexNumber].pages;
   if (myLibrary[indexNumber].read == true) {
     document.getElementById("readCheck").checked = true;
-  }
-}
+}}
 
-function updateParse() {
+//Updates Object Properties to match our new Form Elements.
+function saveUpdates() {
     myLibrary[indexNumber].author = form.elements[0].value;
     myLibrary[indexNumber].title = form.elements[1].value;
     myLibrary[indexNumber].pages = form.elements[2].value;
     myLibrary[indexNumber].read = isChecked();
+}
+
+//Pushes our Updated Object to HTML.
+function pushUpdates() {
+    const cards = document.querySelectorAll('.bookCard');
+    cards[indexNumber].children[0].textContent = myLibrary[indexNumber].author;
+    cards[indexNumber].children[1].textContent = myLibrary[indexNumber].title;
+    const cardsMid = document.querySelectorAll('.midSection');
+    cardsMid[indexNumber].children[0].textContent = myLibrary[indexNumber].pages;
+    if (myLibrary[indexNumber].read == true) { cardsMid[indexNumber].children[1].classList.add("readTrue"); }
+}
+
+//Contains function calls that are required when we finalize a Card Update.
+function updateParse() {
+    saveUpdates();
     closeForm();
     resetForm();
+    pushUpdates();
     indexNumber = undefined;
 }
 
@@ -142,17 +161,21 @@ function updateParse() {
 let updateIndex = function (title) {
   indexNumber = myLibrary.findIndex((obj) => {
     return obj.title === title;
-  }); //Seek Permanent Storage
+  });
 };
 
+//Push Update Functionality when Update card sections are clicked.
 window.addEventListener("click", (e) => {
   if (e.target.classList.contains("update")) updateLoad(e);
 });
 
-//Edit CSS when clicked
+//Update readStatus when clicked.
 window.addEventListener("click", (e) => {
-  if (e.target.classList.contains("read"))
-    e.target.classList.toggle("readTrue");
+  if (e.target.classList.contains("read")){
+    updateIndex(e.target.parentElement.parentElement.querySelector('.title').textContent);
+    myLibrary[indexNumber].readStatus(e);
+    indexNumber = undefined;
+  }
 });
 
 //Cheaty method of including HTML5 Form Validation and DOM HTML attribute retrieval of form element data as function parameters.
@@ -163,6 +186,13 @@ form.addEventListener("submit", (e) => {
 });
 
 createCard();
+
+
+
+
+
+
+
 
 //Deprecated Anonymous function that adjusted CSS based on if my default book has been read or not, used during construction.
 /*(() => {
