@@ -3,8 +3,8 @@ Library Project from The Odin Project Cirriculum
 
 To Do:
     --Main Features--
--Update Button
 -Remove Book Button
+-Add Randomiser Entry Button for OneClick Entries
 
     --Minor Features--
 -Card Text Wrapping

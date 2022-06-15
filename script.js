@@ -103,6 +103,11 @@ function createCard() {
   numOfCards++;
 }
 
+function randomCard(){
+    myLibrary.push(randLibrary[[Math.floor(Math.random()*randLibrary.length)]]);
+    createCard();
+}
+
 //Conditional statement that decides which function is called depending on the state of our form button.
 function decideAction(btnText) {
   if (
@@ -151,9 +156,9 @@ function pushUpdates() {
 //Contains function calls that are required when we finalize a Card Update.
 function updateParse() {
     saveUpdates();
-    closeForm();
-    resetForm();
     pushUpdates();
+    resetForm();
+    closeForm();
     indexNumber = undefined;
 }
 
@@ -186,8 +191,6 @@ form.addEventListener("submit", (e) => {
 });
 
 createCard();
-
-
 
 
 

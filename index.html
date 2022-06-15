@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="books.js" defer></script>
     <title>Book Library</title>
 </head>
 <body>
@@ -17,6 +18,9 @@
             <nav>
                 <div class="add" onclick="openAddForm()">
                     <button id="addBook">Add</button>
+                </div>
+                <div class="random" onclick="randomCard()">
+                    <button id="random">Random</button>
                 </div>
                 <div class="remove">
                     <button id="removeBook">Remove</button>
@@ -46,13 +50,13 @@
                 <h1 id="details">Book Details:</h1>
 
                 <label for="author" id="author"><h3>Author</h3></label>
-                <input class="formItem" type="text" id="authorBot" placeholder="Enter Author here" name="author" minlength="10" maxlength="100" required>
+                <input class="formItem" type="text" id="authorBot" placeholder="Enter Author here" name="author" minlength="2" maxlength="100" required>
 
                 <label for="title" id="title"><h3>Title</h3></label>
-                <input class="formItem" type="text" id="titleBot" name="title" placeholder="Enter Title here" minlength="10" maxlength="100" required>
+                <input class="formItem" type="text" id="titleBot" name="title" placeholder="Enter Title here" minlength="2" maxlength="100" required>
 
                 <label for="pages" id="pages"><h3>Pages</h3></label>
-                <input class="formItem" type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" min="0" max="3000" required>
+                <input class="formItem" type="number" id="pagesBot" name="pages" placeholder="Enter Pages here" min="0" max="9999" required>
 
                 <label for="read" id="read"><h3>Click If Read</h3></label>
                 <input class="formItem" type="checkbox" id="readCheck" name="read">
