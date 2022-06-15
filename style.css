@@ -60,6 +60,11 @@ nav div > *{
     width: 100px;
     color: white;
     font-weight: bold;
+    transition: all 500ms;
+}
+nav div > *:hover{
+    height: 42px;
+    width: 105px;
 }
 
 #addBook{
@@ -89,8 +94,12 @@ nav div > *{
     grid-template-rows: repeat(4, 1fr);
     background-color: rgba(255, 0, 0, 0.205);
     box-shadow: 0px 0px 2px 4px purple;
+    transition: all 500ms;
     height: 400px;
     width: 400px;
+}
+.bookCard:hover{
+    transform: scale(1.05);
 }
 .bookCard > * {
     width: 100%;
@@ -128,7 +137,11 @@ nav div > *{
 .update{
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
-    background-color: rgba(0, 128, 0, 0.445);
+    background-color: rgba(0, 128, 0, 0.45);
+    transition: all 500ms;
+}
+.update:hover{
+    background-color: rgba(0, 128, 0, 0.7);
 }
 
 footer{

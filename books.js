@@ -26,7 +26,7 @@ randLibrary.push(new book('Michelle Obama', 'Becoming', 448, false));
 randLibrary.push(new book('Garrett M. Graff', 'The Only Plane in the Sky', 512, true));
 randLibrary.push(new book('John Carreyrou', 'Bad Blood', 352, false));
 randLibrary.push(new book('Caroline Criado Perez', 'Invisible Woman', 272, false));
-randLibrary.push(new book('Jon Krakauer', 'Inton Thin Air', 332, false));
+randLibrary.push(new book('Jon Krakauer', 'Into Thin Air', 332, false));
 randLibrary.push(new book('Audie Murphy', 'To Hell and Back', 274, true));
 randLibrary.push(new book('Trevor Noah', 'Born a Crime', 304, false));
 randLibrary.push(new book('David McCullough', 'The Great Bridge', 636, false));
