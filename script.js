@@ -1,5 +1,4 @@
 let myLibrary = [];
-let numOfCards = 0;
 let indexNumber;
 
 //Default Library entry to display on the page.
@@ -93,14 +92,12 @@ function createCard() {
 
   newRead.textContent = "Read Y/N?";
   newUpdate.textContent = "Update";
-  newAuthor.textContent = myLibrary[numOfCards].author;
-  newTitle.textContent = myLibrary[numOfCards].title;
-  newPages.textContent = myLibrary[numOfCards].pages;
-  if (myLibrary[numOfCards].read == true) {
+  newAuthor.textContent = myLibrary[myLibrary.length - 1].author;
+  newTitle.textContent = myLibrary[myLibrary.length - 1].title;
+  newPages.textContent = myLibrary[myLibrary.length - 1].pages;
+  if (myLibrary[myLibrary.length - 1].read == true) {
     newRead.classList.add("readTrue");
   }
-
-  numOfCards++;
 }
 
 //Adds a randomly selected Book to MyLibrary from our external book library, then creates a new card.
@@ -172,7 +169,6 @@ function updateIndex (title) {
 
 function loadRemoveWindow(){
     document.getElementById('removeWindow').style.display = 'grid';
-    
     for (x = myLibrary.length - 1; x > -1; x--)
     {
         container = document.querySelector('.windowContent')
@@ -191,6 +187,19 @@ function closeWindow(){
     document.getElementById('removeWindow').style.display = 'none';
 }
 
+function removeBook(e){
+    updateIndex(e.target.textContent);
+    myLibrary.splice(indexNumber, 1);
+
+    const container = document.querySelector('.container');
+    const removeElement = container.children[0];
+    removeElement.parentNode.removeChild(removeElement);
+
+    closeWindow();
+    loadRemoveWindow();
+
+    
+}
 
 
 
@@ -206,6 +215,13 @@ window.addEventListener("click", (e) => {
     myLibrary[indexNumber].readStatus(e);
     indexNumber = undefined;
   }
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target.classList.contains('remDisplay')){
+        removeBook(e);
+        indexNumber = undefined;
+    }
 });
 
 //Cheaty method of including HTML5 Form Validation and DOM HTML attribute retrieval of form element data as function parameters.

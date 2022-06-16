@@ -231,7 +231,7 @@ input[type='checkbox']{
     border-radius: 24px;
     top: 45%;
     left: 50%;
-    width: 35vw;
+    width: max(350px, 35vw);
     margin-top: -35vh;
     margin-left: -17.5vw;
     border: 1px solid black;
@@ -242,7 +242,7 @@ input[type='checkbox']{
 .windowHeader{
     display: grid;
     font-weight: bold;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 32px;
 
 }
 .windowHeader img{
@@ -269,7 +269,7 @@ input[type='checkbox']{
     justify-self: end;
 }
 .remDisplay{
-    width: 40%;
+    width: 80%;
     text-align: center;
     height: max-content;
     background-color: red;
