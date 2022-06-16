@@ -22,7 +22,7 @@
                 <div class="random" onclick="randomCard()">
                     <button id="random">Random</button>
                 </div>
-                <div class="remove">
+                <div class="remove" onclick="loadRemoveWindow()">
                     <button id="removeBook">Remove</button>
                 </div>
                 
@@ -66,6 +66,13 @@
             </form>
         </div>
 
+        <div id="removeWindow">
+            <div class="windowHeader">
+                <p>Click to Delete!</p>
+                <img src="Images/delete.png" alt="Close Window" onclick="closeWindow()">
+            </div>
+            <div class="windowContent"></div>
+        </div>
         <footer>
             <h3>Copyright © 2022 Joshua Morton</h3>
             <a href="https://github.com/Klavelon/TOP_Library">

@@ -103,6 +103,7 @@ function createCard() {
   numOfCards++;
 }
 
+//Adds a randomly selected Book to MyLibrary from our external book library, then creates a new card.
 function randomCard(){
     myLibrary.push(randLibrary[[Math.floor(Math.random()*randLibrary.length)]]);
     createCard();
@@ -163,11 +164,35 @@ function updateParse() {
 }
 
 //Used to find the index number of targetted Cards for Updating their contents
-let updateIndex = function (title) {
+function updateIndex (title) {
   indexNumber = myLibrary.findIndex((obj) => {
     return obj.title === title;
   });
 };
+
+function loadRemoveWindow(){
+    document.getElementById('removeWindow').style.display = 'grid';
+    
+    for (x = myLibrary.length - 1; x > -1; x--)
+    {
+        container = document.querySelector('.windowContent')
+        let option = document.createElement('div');
+        option.classList.add('remDisplay');
+        option.textContent = myLibrary[x].title;
+        container.appendChild(option);
+    }
+}
+//Closees our poppup Remove window and clears all entries.
+function closeWindow(){
+    const del = document.querySelectorAll('.remDisplay');
+    del.forEach(remDisplay => {
+        remDisplay.remove();
+    })
+    document.getElementById('removeWindow').style.display = 'none';
+}
+
+
+
 
 //Push Update Functionality when Update card sections are clicked.
 window.addEventListener("click", (e) => {

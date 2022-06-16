@@ -223,3 +223,54 @@ input[type='checkbox']{
     border: 2px solid black;
     font-weight: bold;
 }
+
+#removeWindow{
+    display: none;
+    position: fixed;
+    padding: 25px;
+    border-radius: 24px;
+    top: 45%;
+    left: 50%;
+    width: 35vw;
+    margin-top: -35vh;
+    margin-left: -17.5vw;
+    border: 1px solid black;
+    background: linear-gradient(180deg, rgba(50,128,134,1) 0%, rgba(127,163,159,0.85) 80%); 
+    grid-template-rows: 50px 1fr;
+}
+
+.windowHeader{
+    display: grid;
+    font-weight: bold;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.windowHeader img{
+    display: block;
+    justify-self: end;
+    height: 32px;
+    width: 32px;
+}
+.windowHeader img:hover{
+    background-color: red;
+    border-radius: 24px;
+}
+
+.windowContent{
+    display: grid;
+    gap: 5px;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+.windowContent :nth-child(odd){
+    justify-self: start;
+}
+.windowContent :nth-child(even){
+    justify-self: end;
+}
+.remDisplay{
+    width: 40%;
+    text-align: center;
+    height: max-content;
+    background-color: red;
+}
