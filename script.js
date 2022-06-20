@@ -100,11 +100,6 @@ function createCard() {
   }
 }
 
-//Adds a randomly selected Book to MyLibrary from our external book library, then creates a new card.
-function randomCard(){
-    myLibrary.push(randLibrary[[Math.floor(Math.random()*randLibrary.length)]]);
-    createCard();
-}
 
 //Conditional statement that decides which function is called depending on the state of our form button.
 function decideAction(btnText) {

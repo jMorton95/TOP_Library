@@ -21,14 +21,10 @@ header, footer{
     background-color: rgb(4, 57, 100);
 }
 
-header{
-    box-shadow: 2px 2px 5px blue;
-}
-
 main{
     padding-top: 20px;
     display: grid;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 60px 1fr 60px;
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: start;
@@ -144,9 +140,6 @@ nav div > *:hover{
     background-color: rgba(0, 128, 0, 0.7);
 }
 
-footer{
-    box-shadow: 2px -2px 5px blue;
-}
 footer img{
     height: 40px;
     width: 110px;
@@ -269,6 +262,9 @@ input[type='checkbox']{
     justify-self: end;
 }
 .remDisplay{
+    font-size: 1.1rem;
+    align-self: center;
+    border: 1px solid black;
     width: 80%;
     text-align: center;
     height: max-content;
