@@ -1,3 +1,6 @@
+html{
+    --blockColor: rgb(6,57,130);
+}
 *{
     padding: 0px;
     margin: 0px;
@@ -19,7 +22,8 @@ header, footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(4, 57, 100);
+    background: linear-gradient(35deg, var(--blockColor) 52%, rgba(133,117,189,1) 100%);
+    
 }
 
 main{
@@ -98,22 +102,12 @@ nav div > *:hover{
     width: 300px;
     margin: 5px;
 }
-.bookCard:first-child:hover{
-    /*margin-right: 1.5rem;*/
+
+.bookCard:hover{
     margin: 7.5px;
     scale: 1.05;
 }
-.bookCard:last-child:hover{
-    /*margin-left: 1.5rem;*/
-    margin: 7.5px;
-    scale: 1.05;
-}
-.bookCard:not(:first-child, :last-child):hover{
-    /*margin-left: 1.5rem;
-    margin-right: 1.5rem;*/
-    margin: 7.5px;
-    scale: 1.05;
-}
+
 
 .bookCard:hover ~ { }
    
@@ -202,6 +196,9 @@ footer img:hover{
                          "pagesBot pagesBot"
                          "read click"
                          "addB cancel";
+}
+.formContainer > *{
+    user-select:auto;
 }
 /* Position each Form Element appropriately to above grid template*/
 #details{
