@@ -84,6 +84,7 @@ function createCard() {
   newMidSection.classList.add("midSection");
   newPages.classList.add("pages");
   newRead.classList.add("read");
+  newRead.title = 'Click To Change Status';
   newUpdate.classList.add("update");
 
   cardContainer.appendChild(newBook);
