@@ -1,14 +1,6 @@
 let myLibrary = [];
 let indexNumber;
 
-//Default Library entry to display on the page.
-myLibrary[0] = new book(
-  "George R.R Martin",
-  "A Song of Ice and Fire",
-  750,
-  false
-);
-
 //Object constructor for our library.
 function book(author, title, pages, read) {
   this.author = author;
@@ -226,12 +218,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   decideAction(document.getElementById("add").textContent);
 });
-
-createCard();
-
-
-
-
 
 
 //Deprecated Anonymous function that adjusted CSS based on if my default book has been read or not, used during construction.

@@ -43,10 +43,15 @@ randLibrary.push(new book('Daniel H. Pink', 'The Power of Regret', 256, false));
 randLibrary.push(new book('Katy Tur', 'Rough Draft', 272, false));
 randLibrary.push(new book('Ibram X. Kendi', 'How to Raise an Antiracist', 320, false));
 randLibrary.push(new book('Patrick Radden Keefe', 'Rogues', 368, false));
-
+randLibrary.push(new book('George R.R Martin','A Song of Ice and Fire', 750, false));
 
 //Adds a randomly selected Book to MyLibrary from our external book library, then creates a new card.
 function randomCard(){
     myLibrary.push(randLibrary[[Math.floor(Math.random()*randLibrary.length)]]);
     createCard();
 }
+//Preloads the website with 3 cards.
+for(x = 3; x > 0; x--){
+    randomCard();
+  }
+  
