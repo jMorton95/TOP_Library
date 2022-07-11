@@ -2,22 +2,24 @@ let myLibrary = [];
 let indexNumber;
 
 //Object constructor for our library.
-function book(author, title, pages, read) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
-}
+class Book {
 
-//Push a prototype function to our objects that updates their read status and changes CSS to reflect.
-book.prototype.readStatus = function (e) {
+  constructor (author, title, pages, read) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  readStatus() {
     if (this.read === false){
-        this.read = true;
-    } else {
-        this.read = false;
-    }
-    e.target.classList.toggle("readTrue");
-};
+      this.read = true;
+  } else {
+      this.read = false;
+  }
+  e.target.classList.toggle("readTrue");
+  }
+}
 
 function openAddForm() {
   document.getElementById("addBookForm").style.display = "block";
@@ -50,7 +52,7 @@ function isChecked() {
 
 //Create Book Objects from Inputs
 function storeBook(author, title, pages, read) {
-  myLibrary[myLibrary.length] = new book(author, title, pages, read);
+  myLibrary[myLibrary.length] = new Book(author, title, pages, read);
 
   //Reset and hide our form, create a card from new Object.
   resetForm();
