@@ -11,7 +11,7 @@ class Book {
     this.read = read;
   }
 
-  readStatus() {
+  readStatus(e) {
     if (this.read === false){
       this.read = true;
   } else {
